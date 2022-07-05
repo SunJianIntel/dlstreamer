@@ -246,6 +246,10 @@ void OpenVINOImageInference::SetCompletionCallback(std::shared_ptr<BatchRequest>
         try {
             ITT_TASK("completion_callback_lambda");
 
+#ifdef ENABLE_PERF_CAL
+            size_t buffer_size = batch_request->buffers.size();
+            GVA_FIXME("model_name: %s, inference size: %ld", const_cast<char*>(model_name.c_str()), buffer_size);
+#endif
             if (code != InferenceEngine::StatusCode::OK) {
                 GVA_ERROR("Inference request failed with code: %d (%s)", code, getErrorMsg(code).c_str());
                 this->handleError(batch_request->buffers);

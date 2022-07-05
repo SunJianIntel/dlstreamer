@@ -14,6 +14,7 @@
 #include <numeric>
 #include <sstream>
 #include <vector>
+#include <limits>
 
 namespace dlstreamer {
 

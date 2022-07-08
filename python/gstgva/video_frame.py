@@ -48,7 +48,8 @@ class VideoFrame:
             self.__video_info = video_info
         elif caps:
             self.__video_info = GstVideo.VideoInfo()
-            self.__video_info.from_caps(caps)
+            #self.__video_info.from_caps(caps)
+            self.__video_info = GstVideo.VideoInfo.new_from_caps(caps)
         elif self.video_meta():
             self.__video_info = GstVideo.VideoInfo()
             self.__video_info.width = self.video_meta().width

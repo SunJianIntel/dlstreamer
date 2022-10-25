@@ -99,7 +99,7 @@ void VideoPreprocVAAPI::init_vaapi() {
     if (_va_config_id == VA_INVALID_ID) {
         throw std::invalid_argument("Could not create VA config. Cannot initialize VaApiContext without VA config.");
     }
-    VA_CALL(_va_vtable->vaCreateContext(_va_driver, _va_config_id, 0, 0, VA_PROGRESSIVE, nullptr, 0, &_va_context_id));
+    VA_CALL(_va_vtable->vaCreateContext(_va_driver, _va_config_id, 0, 0, 0, nullptr, 0, &_va_context_id));
     if (_va_context_id == VA_INVALID_ID) {
         throw std::invalid_argument("Could not create VA context. Cannot initialize VaApiContext without VA context.");
     }
